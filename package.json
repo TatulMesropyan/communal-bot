@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon bot.js"
+    "start": "nodemon bot.js",
+    "clean": "prettier --write"
   },
   "author": "Tatul Mesropyan",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "node-telegram-bot": "^0.1.9",
     "node-telegram-bot-api": "^0.61.0",
     "nodemon": "^2.0.22",
+    "prettier": "^2.8.7",
     "request": "^2.88.2"
   }
 }
