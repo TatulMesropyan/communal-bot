@@ -11,8 +11,12 @@
   "author": "Tatul Mesropyan",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "events": "^3.3.0",
+    "mongodb": "^5.3.0",
+    "mongoose": "^7.0.4",
     "node-telegram-bot": "^0.1.9",
     "node-telegram-bot-api": "^0.61.0",
     "nodemon": "^2.0.22",

@@ -27,6 +27,11 @@ bot.onText(/\/start/, (startMsg) => {
 										bot.once('message', (msgPhone) => {
 											const phone = msgPhone.text;
 											someRequest(credentials, type, phone)
+												.then(r =>
+												bot.sendMessage(msgCredentials.chat.id, `${type}-ի վճարման ենթակա է ${r}`)
+											).catch(err => {
+												bot.sendMessage(msgCredentials.chat.id, err)
+											})
 										})
 									})
 							})
