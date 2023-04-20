@@ -37,18 +37,28 @@ bot.onText(/\/start/, (startMsg) => {
                 bot
                   .sendMessage(msgCredentials.chat.id, PHONE_REQUEST)
                   .then(() => {
-                    bot.once("message", (msgPhone) => {
+                    bot.once("message", async (msgPhone) => {
                       const phone = msgPhone.text;
-                      someRequest(credentials, type, phone)
-                        .then((r) =>
-                          bot.sendMessage(
-                            msgCredentials.chat.id,
-                            `${type}-ի վճարման ենթակա է ${r}`
-                          )
-                        )
-                        .catch(() => {
-                          bot.sendMessage(msgCredentials.chat.id, WRONG);
-                        });
+                      try {
+                        const r = await someRequest(credentials, type, phone);
+                        bot.sendMessage(
+                          msgCredentials.chat.id,
+                          `${type}-ի վճարման ենթակա է ${r}`
+                        );
+                      } catch (err) {
+                        bot
+                          .sendMessage(msgCredentials.chat.id, WRONG)
+                          .then(() => {
+                            bot
+                              .sendMessage(msgCredentials.chat.id, WRONG)
+                              .then(() => {
+                                bot.sendCommand(
+                                  "/start",
+                                  msgCredentials.chat.id
+                                );
+                              });
+                          });
+                      }
                     });
                   });
               });
