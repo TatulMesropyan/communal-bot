@@ -46,8 +46,8 @@ bot.onText(/\/start/, (startMsg) => {
                             `${type}-ի վճարման ենթակա է ${r}`
                           )
                         )
-                        .catch((err) => {
-                          bot.sendMessage(msgCredentials.chat.id, err);
+                        .catch(() => {
+                          bot.sendMessage(msgCredentials.chat.id, WRONG);
                         });
                     });
                   });

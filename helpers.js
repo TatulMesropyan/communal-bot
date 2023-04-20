@@ -39,7 +39,7 @@ export const someRequest = async (initials, communalType, phone) => {
 export const CREDENTIALS_REQUEST_TEXT =
   "Խնդրում ենք գրել ձեր անուն ազգանոնը այսպես - Հակոբ Հակոբյան";
 export const PHONE_REQUEST = "Նշեք հեռախոսահամարը առանց +374 և 0";
-export const WRONG = "Տվյալները սխալ են, խնդրում ենք փորձել նորից";
+export const WRONG = "Տվյալները սխալ են, խնդրում ենք փորձել նորից /start";
 export const OPTIONS = [
   { text: "Բոլոր Կոմունալներ" },
   { text: "Գազ" },

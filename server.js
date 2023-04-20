@@ -10,11 +10,13 @@ export async function getRequest(firstName, lastName, type, phone) {
     const result = await collection.findOne({
       firstName: firstName,
       lastName: lastName,
-      phone: phone,
+      phone: +phone,
     });
-    return result.type;
+    if (result[type]) {
+      return result[type];
+    } else return null;
   } catch (err) {
-    console.log(err);
+    return null;
   } finally {
     await client.close();
   }
