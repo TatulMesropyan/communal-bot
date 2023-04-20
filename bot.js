@@ -1,16 +1,11 @@
-import TelegramBot from "node-telegram-bot-api";
-import dotenv from "dotenv";
 import {
+  bot,
   CREDENTIALS_REQUEST_TEXT,
   OPTIONS,
   PHONE_REQUEST,
   someRequest,
   WRONG,
 } from "./helpers.js";
-
-dotenv.config();
-
-const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 
 bot.onText(/\/start/, (startMsg) => {
   bot.sendMessage(startMsg.chat.id, `Բարև ձեզ ${startMsg.from.first_name}!`);

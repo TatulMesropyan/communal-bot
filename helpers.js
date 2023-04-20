@@ -1,4 +1,8 @@
 import { getRequest } from "./server.js";
+import TelegramBot from "node-telegram-bot-api";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const mapCommunalTypeForRequest = (type) => {
   let value;
@@ -23,8 +27,9 @@ export const mapCommunalTypeForRequest = (type) => {
 export const someRequest = async (initials, communalType, phone) => {
   const firstName = initials.split(" ")[0];
   const lastName = initials.split(" ")[1];
+  if (!firstName || !lastName || !communalType || !phone) return null;
   const type = mapCommunalTypeForRequest(communalType);
-  //Should contain request to DB for getting data
+  //@TODO issue
   const result = await getRequest(firstName, lastName, type, phone);
   if (result) {
     return result;
@@ -41,3 +46,6 @@ export const OPTIONS = [
   { text: "Հոսանք" },
   { text: "Ջուր" },
 ];
+export const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
+export const MONGO_URI = process.env.SCHEMA_URL;
+export const MONGO_DB_NAME = process.env.MONGO_DB_NAME;
