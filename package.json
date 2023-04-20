@@ -1,7 +1,7 @@
 {
   "name": "komunal_bot",
   "version": "1.0.0",
-  "description": "Bot for paying comunals",
+  "description": "Bot for paying communal payments",
   "main": "bot.js",
   "type": "module",
   "scripts": {
